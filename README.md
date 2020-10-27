@@ -2,20 +2,18 @@
 
 ## To build application:
 
-In the project directory, you can run:
+Run two commands in the project directory:
 
 ### `docker build --tag xoapi . `
 
-and
+followed by
 
-### `docker run --name xoclient -p 5000:5000 -d xoapi `
+### `docker run --name xoapi -p 5000:5000 -d xoapi `
 
 ## Client side application repository:
 
 [https://github.com/rnrokas/tick-tack-toe-client](https://github.com/rnrokas/tick-tack-toe-client)
 
 ## To run tests:
-
-In the project directory, you can run:
 
 ### `npm test`
