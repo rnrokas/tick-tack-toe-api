@@ -32,6 +32,19 @@ router.get('/board/:id', async (req, res) => {
   }
 });
 
+//@route    Get action/board/history
+//@desc     get history
+//@access   Public
+router.get('/history', async (req, res) => {
+  try {
+    const history = await Board.find({});
+    res.json(history);
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).send('Server Error');
+  }
+});
+
 //@route    Post action/move/:boardID
 //@desc     add a move
 //@access   Public
@@ -58,9 +71,7 @@ router.post('/move/:boardID', async (req, res) => {
   } catch (err) {
     console.error(err.message);
     if (err.kind == 'ObjectId') {
-      return res
-        .status(400)
-        .json({ errors: [{ msg: 'Board does not exist' }] });
+      return res.status(400).json({ errors: [{ msg: 'Board does not exist' }] });
     }
     return res.status(500).send('Server Error');
   }
